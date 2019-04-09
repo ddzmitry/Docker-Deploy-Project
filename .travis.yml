@@ -1,0 +1,11 @@
+# Config
+sudo: required
+# Get docker ready
+services:
+  - docker
+# Build Docker Container
+before_install:
+  - docker build -t ddzmitry/docker-deploy-project -f Dockerfile.dev .
+#  Run tests
+script:
+  - docker run ddzmitry/docker-deploy-project npm run test -- --coverage
