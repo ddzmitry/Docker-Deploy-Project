@@ -9,6 +9,8 @@ RUN npm run build
 FROM nginx
 # Copy from builder phase
 # https://hub.docker.com/_/nginx
+# EXPOSE PORT TO ACCESS
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 # Default command will start nginx for us 
 # 8080:80
